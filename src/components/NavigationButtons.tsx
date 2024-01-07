@@ -14,19 +14,27 @@ function NavigationButtons({
   return (
     <div className=" dark:bg-sky-950">
       <div className="p-5 flex space-x-2 justify-center">
-        <button className="px-3 rounded bg-gray-300" onClick={onPrevPage}>
+        <button
+          className="px-3 rounded bg-gray-300"
+          onClick={onPrevPage}
+          disabled={pageInfo ? false : true}
+        >
           {"\u2b60"}
         </button>
         <span className="p-2 rounded bg-gray-300">
-          {page}/{pageInfo.pages}
+          {page}/{pageInfo?.pages || 1}
         </span>
-        <button className="px-3 rounded bg-gray-300" onClick={onNextPage}>
+        <button
+          className="px-3 rounded bg-gray-300"
+          onClick={onNextPage}
+          disabled={pageInfo ? false : true}
+        >
           {"\u2b62"}
         </button>
       </div>
       <div>
         <span className="dark:text-gray-300 flex justify-center">
-          {pageInfo.count} characters
+          {pageInfo?.count || 0} characters
         </span>
         <span></span>
       </div>
